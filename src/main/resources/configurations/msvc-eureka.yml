@@ -1,0 +1,20 @@
+# Port where Eureka works
+server:
+  port: 8761
+
+# Set microservice name
+spring:
+  application:
+    name: msvc-eureka
+
+# Where microservices will subscribe
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    # Do not register itself
+    register-with-eureka: false
+    fetch-registry: false
+    server-url:
+      # Path where it will work eureka server
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
